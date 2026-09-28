@@ -1,0 +1,30 @@
+name: evidence
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Tests (no dependency installed on purpose)
+        run: python -m unittest -q test_demo
+      - name: Evidence pack (tests + demo + verifier, intact and tampered)
+        run: python tools/evidence_pack.py --out evidence_py${{ matrix.python }}.json
+      - name: Re-check the evidence file
+        run: python tools/evidence_pack.py --check evidence_py${{ matrix.python }}.json
+      - name: Governance overhead (public shim)
+        run: python bench/bench_overhead.py --n 2000 --json bench_py${{ matrix.python }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qec-public-evidence-py${{ matrix.python }}
+          path: |
+            evidence_py${{ matrix.python }}.json
+            bench_py${{ matrix.python }}.json
+            sbom/cyclonedx.json

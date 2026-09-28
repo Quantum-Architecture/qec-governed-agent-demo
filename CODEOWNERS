@@ -1,0 +1,6 @@
+# Review required from the maintainer for anything that changes governance semantics or evidence.
+*                       @Quantum-Architecture
+qec_shim.py             @Quantum-Architecture
+ledger_verify.py        @Quantum-Architecture
+tools/evidence_pack.py  @Quantum-Architecture
+.github/workflows/      @Quantum-Architecture

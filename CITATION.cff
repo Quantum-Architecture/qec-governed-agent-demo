@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "qec-governed-agent-demo — governed AI agent demonstration (public shim)"
+message: "If you reference this demonstration, please cite it as below."
+type: software
+authors:
+  - family-names: Marango
+    given-names: Catherine
+    affiliation: Quantum Excellium
+version: 1.0.0
+date-released: 2026-09-26
+license: Apache-2.0
+repository-code: https://github.com/Quantum-Architecture/qec-governed-agent-demo
+url: https://quantumexcellium.com
+keywords: [ai-agents, agent-governance, audit-trail, delegation, prompt-injection, sha256]

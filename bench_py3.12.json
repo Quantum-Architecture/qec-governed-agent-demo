@@ -1,0 +1,23 @@
+{
+  "shim": "public demonstration shim (not the licensed runtime)",
+  "python": "3.11.15",
+  "machine": "x86_64",
+  "system": "Linux",
+  "decisions": 2000,
+  "allowed_decision_us": {
+    "median": 46.9,
+    "p95": 77.4
+  },
+  "refused_decision_us": {
+    "median": 26.4,
+    "p95": 43.5
+  },
+  "delegation_check_us": {
+    "median": 23.0,
+    "p95": 38.7
+  },
+  "ledger_lines": 8001,
+  "ledger_bytes": 2949354,
+  "verify_seconds": 0.119,
+  "verify_result": "VALID"
+}
